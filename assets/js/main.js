@@ -109,4 +109,58 @@ calcClose.addEventListener('click', function(){
 
 
 
-//// для кальулятора
+//// запросы
+
+// запросы категории листов
+function getPanelList(){
+    fetch('https://category-nurzhas-api.herokuapp.com/category/list')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        });
+}
+getPanelList()
+///// ##### Пока только получаю запрос, нужно вывести на фронте
+
+
+
+
+
+
+
+
+
+// отправка формы с контактами
+const form_firstname = document.querySelector('#send-firstname') // имя
+const form_lastname = document.querySelector('#send-lastname') // фамилия
+const form_phone = document.querySelector('#send-phone') // номерт телефона
+const form_btn = document.querySelector('#send-form-btn') // кнопка топравки
+
+// отпарвка контактов
+function sendMessage(){
+    // объект юзера
+    let user_info = {
+        "first_name" : form_firstname.value,
+        "last_name" : form_lastname.value,
+        "phone_number" : form_phone.value,
+    }
+    // пост запрос на отправку
+    fetch('http://category-nurzhas-api.herokuapp.com/message', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, /',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user_info)
+      }).then(res => res.json())
+        .then(res => console.log(res));
+}
+form_btn.addEventListener('click', function(){
+    sendMessage()
+})
+///// ###### очень важные моменты
+///// ###### 1 Нужно сделать валидацию
+///// ###### 2 Отоброзить сообщения при не валидности и успешной отправке
+///// ###### то что описано в коментах выше пока нет
