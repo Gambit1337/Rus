@@ -1,6 +1,8 @@
 @import '_mixin';
 
-
+.active-type {
+    border: 5px solid green !important;
+}
 
 .layer {
     position: fixed;

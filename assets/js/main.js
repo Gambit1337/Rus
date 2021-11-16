@@ -118,11 +118,28 @@ function getPanelList(){
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            innerPanelList(data)
         });
 }
 getPanelList()
-///// ##### Пока только получаю запрос, нужно вывести на фронте
+function innerPanelList (data) {
+    for (let len of data) {
+        let div = document.createElement('div') // wrapper
+        console.log(len);
+            div.innerHTML = `
+                <div class="about-left">
+                    <div class="about-img">
+                        <img src="/assets/img/roof.jpg" alt="#"> 
+                    </div>
+                    <h5 class="about-title">${len.name}</h5>
+                    <p class="about-text">${len.small_description}</p>
+                    <button class="about-btn">Подробнее</button>
+                </div>
+            `
+            /// ### в теге img выше прописать путь к картинке, сейчас там нет фото кажется
+        document.querySelector('.about-bottom').append(div)
+    }
+}
 
 
 
@@ -146,15 +163,16 @@ function sendMessage(){
         "last_name" : form_lastname.value,
         "phone_number" : form_phone.value,
     }
+    console.log(user_info);
     // пост запрос на отправку
-    fetch('http://category-nurzhas-api.herokuapp.com/message', {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json, text/plain, /',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user_info)
-      }).then(res => res.json())
+        fetch('http://category-nurzhas-api.herokuapp.com/message', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, /',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user_info)
+        }).then(res => res.json())
         .then(res => console.log(res));
 }
 form_btn.addEventListener('click', function(){
@@ -164,3 +182,12 @@ form_btn.addEventListener('click', function(){
 ///// ###### 1 Нужно сделать валидацию
 ///// ###### 2 Отоброзить сообщения при не валидности и успешной отправке
 ///// ###### то что описано в коментах выше пока нет
+
+
+
+
+// события калькулятора
+// let building_type = document.querySelectorAll('.calc-header__type > button')
+// building_type.forEach((item)=>{
+
+// })

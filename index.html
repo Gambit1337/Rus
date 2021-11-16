@@ -59,22 +59,7 @@
                 <h2 class="about-top-title">Наши услуги</h2>
             </div>
             <div class="about-bottom">
-                <div class="about-left">
-                    <div class="about-img">
-                        <img src="/assets/img/roof.jpg" alt="#">
-                    </div>
-                    <h5 class="about-title">Производство доборных элементов</h5>
-                    <p class="about-text">Для вашего комфорта изготавливаем доборные элементы по вашим размерам.</p>
-                    <button class="about-btn">Подробнее</button>
-                </div>
-                <div class="about-right">
-                    <div class="about-img">
-                        <img src="/assets/img/roof2.jpg" alt="#">
-                    </div>
-                    <h5 class="about-title">Производство сэндвич-панелей </h5>
-                    <p class="about-text">Изготовим сэндвич-панели по параметрам заказчика.</p>
-                    <button class="about-btn">Подробнее</button>
-                </div>
+                <!-- тут блоки добавляются через js 124 строка innerPanelList-->
             </div>
         </div>
     </section>
@@ -167,15 +152,15 @@
             <div class="calc-box">
                 <div class="calc-box__left">
                     <div class="calc-header__type">
-                        <button data-type="two">
+                        <button data-type="2">
                             <img src="/assets/img/two.png" alt="">
                             <p>Двускатная</p>
                         </button>
-                        <button data-type="one">
+                        <button data-type="1">
                             <img src="/assets/img/one.png" alt="">
                             <p>Односкатная</p>
                         </button>
-                        <button data-type="line">
+                        <button data-type="3">
                             <img src="/assets/img/row.png" alt="">
                             <p>Плоская</p>
                         </button>
@@ -359,14 +344,14 @@
                     Свяжитесь с нами
                 </div>
 
-                <div class="footer-left__form" action="#">
-                    <input id="send-firstname" type="text" placeholder="Имя">
-                    <input id="send-lastname" type="text" placeholder="Фамилия">
-                    <input id="send-phone" type="tel" placeholder="Телефон">
-                    <button id="send-form-btn">
+                <form class="footer-left__form">
+                    <input id="send-firstname" type="text" placeholder="Имя" required>
+                    <input id="send-lastname" type="text" placeholder="Фамилия" required>
+                    <input id="send-phone" type="tel" placeholder="Телефон" required pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+                    <button type="submit" id="send-form-btn" disabled>
                         Отправить заявку
                     </button>
-                </d>
+                </form>
 
             </div>
             <div class="footer-map">
