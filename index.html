@@ -170,17 +170,17 @@
                         <div class="calc-size__area">
                             <div class="calc-size__area-item">
                                 <div>Ширина:</div>
-                                <input type="number">
+                                <input class="height" type="number">
                                 <div>мм</div>
                             </div>
                             <div class="calc-size__area-item">
                                 <div>Высота:</div>
-                                <input type="number">
+                                <input class="width" type="number">
                                 <div>мм</div>
                             </div>
                             <div class="calc-size__area-item">
                                 <div>Длина:</div>
-                                <input type="number">
+                                <input class="length" type="number">
                                 <div>мм</div>
                             </div>
                         </div>
@@ -189,8 +189,8 @@
                         <div class="calc-size__title">Выберите тип панели:</div>
                         <div class="calc-type__area">
                             <div class="calc-type__btn">
-                                <button class="calc-type__btn-item calc-type__btn-active">Стеновые</button>
-                                <button class="calc-type__btn-item">Кровельные</button>
+                                <button class="calc-type__btn-item calc-type__btn-active" data-type="wall">Стеновые</button>
+                                <button class="calc-type__btn-item" data-type="roofing">Кровельные</button>
                             </div>
                             <div>
                                 Условная развертка на фасонные элементы 0.4 м
@@ -199,13 +199,13 @@
                             <div class="calc-input">
                                 <select class="calc-input__type" name="" id="">
                                     <option value="" disabled selected>Тип утеплителя</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
+                                    <option value="test1">2</option>
+                                    <option value="test2">3</option>
                                 </select>
                                 <select class="calc-type__height" name="" id="">
                                     <option value="" disabled selected>Толщина панели</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
+                                    <option value="test3">2</option>
+                                    <option value="test4">3</option>
                                 </select>
                                 <span>MM</span>
                             </div>
@@ -214,15 +214,15 @@
                                     <div>Вид раскладки:</div>
                                     <div class="calc-radio__area">
                                         <div>
-                                            <input type="radio" id="contactChoice1"
-                                            name="contact" value="">
+                                            <input class="layoutType" type="radio" id="contactChoice1"
+                                            name="contact" value="gorizontal">
                                             <label for="contactChoice1">Горизонтальная</label>
                                         </div>
                                         
                                         <div>
-                                            <input type="radio" id="contactChoice2"
-                                            name="contact" value="">
-                                            <label for="contactChoice2  ">Вертикальная</label>
+                                            <input class="layoutType" type="radio" id="contactChoice1"
+                                            name="contact" value="vertical">
+                                            <label for="contactChoice1  ">Вертикальная</label>
                                         </div>
                                     </div>
                                 </div>
@@ -230,14 +230,14 @@
                                     <div>Ширина панелей:</div>
                                     <div class="calc-radio__area">
                                         <div>
-                                            <input type="radio" id="contactChoice3"
-                                            name="contact" value="">
+                                            <input class="panelWidth" type="radio" id="contactChoice2"
+                                            name="contact2" value="">
                                             <label for="contactChoice3">1.19</label>
                                         </div>
                                         
                                         <div>
-                                            <input type="radio" id="contactChoice4"
-                                            name="contact" value="">
+                                            <input class="panelWidth" type="radio" id="contactChoice2"
+                                            name="contact2" value="">
                                             <label for="contactChoice4">1.00</label>
                                         </div>
                                     </div>
@@ -251,9 +251,9 @@
                         <div>Цвет панелей(по RAL):</div>
                         <div class="calc-color__area">
                             <select class="calc-color__select" name="" id="">
-                                <option value="">Gray 01</option>
-                                <option value="">Gray 02</option>
-                                <option value="">Gray 03</option>
+                                <option value="gray">Gray 01</option>
+                                <option value="red">Gray 02</option>
+                                <option value="black">Gray 03</option>
                             </select>
 
                             <div class="calc-color__slider">
@@ -275,7 +275,7 @@
                     </div>
 
 
-                    <div class="calc-accomp">
+                    <!-- <div class="calc-accomp">
                         <div>Сопутствующая продукция:</div>
                         <div class="calc-accomp__area">
                             <div>Ширина панелей:</div>
@@ -312,7 +312,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <button class="calc-btn">
                         Расчитать стоимость

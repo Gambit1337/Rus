@@ -187,7 +187,90 @@ form_btn.addEventListener('click', function(){
 
 
 // события калькулятора
-// let building_type = document.querySelectorAll('.calc-header__type > button')
-// building_type.forEach((item)=>{
+var buildTypeValue,
+    panelAddType,
+    insulationVal,
+    panelVal,
+    layoutTypes,
+    panelWidthType,
+    panelColor
 
-// })
+let building_type = document.querySelectorAll('.calc-header__type > button')
+building_type.forEach((item)=>{
+    item.addEventListener('click', function(){
+        clearClass(building_type, 'active-type')
+        item.classList.add('active-type')
+        buildTypeValue = item.dataset.type
+    })
+})
+
+
+// тип кровли
+let panelType = document.querySelectorAll('.calc-type__btn-item')
+panelType.forEach((item, arr)=>{
+    item.addEventListener('click', function(){
+        clearClass(panelType, 'calc-type__btn-active')
+        item.classList.add('calc-type__btn-active')
+        panelAddType = item.dataset.type
+    })
+})
+function clearClass(arr, domClass){ // функция для очстки классов
+    for (let item of arr) {
+        item.classList.remove(domClass)
+    }
+}
+
+
+// тип уплотнителя
+document.querySelector('.calc-input__type').addEventListener('change', function(e){
+    insulationVal = e.target.value
+})
+// толщина панели
+document.querySelector('.calc-type__height').addEventListener('change', function(e){
+    panelVal = e.target.value
+})
+// вди раскладки
+let layoutTypeRadio = document.querySelectorAll('.layoutType')
+layoutTypeRadio.forEach((item)=>{
+    item.addEventListener('change', function(){
+        layoutTypes = item.value
+    })
+})
+// ширина панелей
+let panelWidthRadio = document.querySelectorAll('.panelWidth')
+layoutTypeRadio.forEach((item)=>{
+    item.addEventListener('change', function(){
+        panelWidthType = item.value
+    })
+})
+document.querySelector('.calc-color__select').addEventListener('change', function(e){
+    panelColor = e.target.value
+})
+
+// отправка формы
+let send_calc = document.querySelector('.calc-btn')
+send_calc.addEventListener('click', function(){
+    let calc_obj = {
+        "building_type": buildTypeValue,
+        "width": document.querySelector('.width').value,
+        "height": document.querySelector('.height').value,
+        "length": document.querySelector('.length').value,
+        "panel_type": panelAddType,
+        "insulation_type": insulationVal,
+        "panel_depth": panelVal,
+        "layout_type": layoutTypes,
+        "panel_width": panelWidthType,
+        "color": panelColor
+    }
+
+    // fetch('https://category-nurzhas-api.herokuapp.com/category/list', {
+    //         method: 'post',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, /',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(calc_obj)
+    //     }).then(res => res.json())
+    //     .then(res => console.log(res));
+    console.log(calc_obj);
+})
